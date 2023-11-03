@@ -1,2 +1,2 @@
 ## Leetcode
-A collection of all the Leetcode questions I have completed.
+This repo serves to be a portfolio of all my completed submissions on Leetcode. 
