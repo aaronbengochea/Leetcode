@@ -2,10 +2,30 @@
 using namespace std;
 class Solution {
 public:
-    // O(n log n) - becuase of the sorting time
+    // O(n) - one map solution
     bool isAnagram(string s, string t) {
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
-        return s == t;
+        map<char, int> fMap;
+
+        for(char letter : s){
+            fMap[letter]++;
+        }
+
+        for(char letter : t){
+            fMap[letter]--;
+        }
+
+        for(char letter : s){
+            if(fMap[letter] != 0){
+                return false;
+            }
+        }
+
+        for(char letter : t){
+            if(fMap[letter] != 0){
+                return false;
+            }
+        }
+
+        return true;
     }
 };
