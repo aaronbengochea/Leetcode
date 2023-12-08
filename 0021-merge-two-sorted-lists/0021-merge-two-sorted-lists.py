@@ -6,6 +6,7 @@
 class Solution:
     def mergeTwoLists(self, nodeOne: Optional[ListNode], nodeTwo: Optional[ListNode]) -> Optional[ListNode]:
         
+        
         if not nodeOne:
             return nodeTwo
 
@@ -14,23 +15,21 @@ class Solution:
 
         newHead = ListNode()
         finalHead = newHead
-        currentN1 = nodeOne
-        currentN2 = nodeTwo
 
-        while currentN1 and currentN2:
-            if currentN1.val <= currentN2.val and currentN1 and currentN2:
-                newHead.next = currentN1
-                currentN1 = currentN1.next
+        while nodeOne and nodeTwo:
+            if nodeOne.val <= nodeTwo.val and nodeOne and nodeTwo:
+                newHead.next = nodeOne
+                nodeOne = nodeOne.next
                 newHead = newHead.next
             else:
-                newHead.next = currentN2
-                currentN2 = currentN2.next
+                newHead.next = nodeTwo
+                nodeTwo = nodeTwo.next
                 newHead = newHead.next
 
-        if not currentN1:
-            newHead.next = currentN2
+        if not nodeOne:
+            newHead.next = nodeTwo
 
-        if not currentN2:
-            newHead.next = currentN1
+        if not nodeTwo:
+            newHead.next = nodeOne
 
         return finalHead.next
